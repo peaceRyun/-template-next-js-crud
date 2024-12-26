@@ -42,7 +42,7 @@ export async function PUT(req, { params }) {
             content: data.content || posts[index].content,
         };
 
-        return NextResponse.json(posts[index]);
+        return NextResponse.json(posts[index], { status: 201 });
     } catch (error) {
         return NextResponse.json({ error: '게시글 수정 실패' }, { status: 500 });
     }
@@ -63,7 +63,7 @@ export async function DELETE(req, { params }) {
         posts.splice(index, 1);
 
         // 클라이언트 응답
-        return NextResponse.json({ message: '게시글이 삭제되었습니다.' });
+        return NextResponse.json({ message: '게시글이 삭제되었습니다.' }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ error: '게시글 삭제 실패' }, { status: 500 });
     }
