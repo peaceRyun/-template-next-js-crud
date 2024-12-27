@@ -1,5 +1,6 @@
 'use client';
 
+import { formatDate } from '@/utils/formatDate';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -45,7 +46,7 @@ const PostsPage = () => {
                         >
                             <h3 className='text-4xl font-semibold'>{post.title}</h3>
                             <p className='text-xl'>{post.content}</p>
-                            <span className='text-gray-400'>{post.createdAt}</span>
+                            <span className='text-gray-400'>{formatDate(post.createdAt)}</span>
                         </Link>
                     ))}
                 </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { formatDate } from '@/utils/formatDate';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -53,7 +54,7 @@ const PostDetailPage = ({ params }) => {
             <div className='container mx-auto px-4'>
                 <h2 className='text-4xl font-black'>{post.title}</h2>
                 <p className='text-xl'>{post.content}</p>
-                <span className='text-gray-400'>{post.createdAt}</span>
+                <span className='text-gray-400'>{formatDate(post.createdAt)}</span>
                 <div className='flex'>
                     <Link href={'/posts'}>목록</Link>
                     <Link href={`/posts/${resolvedParams.id}/edit`} className='ml-auto mr-4'>
